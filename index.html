@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="grid-guide.css"> -->
+  <!-- 書籍のダウンロードデータに収録されたcssも取り込む。ボックスの構造をわかりやすく表示するために用意されたスタイルファイル 。練習のため初めは必要.
+  「ボックスで骨組みした後に、ボックスの中にコンテンツを入れる」ところまで出来たら、後はいらないのでコメントにして消す-->
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
+<!-- Google fontsというサイトでフォントを選んで「Embed Font」の欄に表示されているコードをコピペ。同サイト内の「Specify in」の欄にあるコードを CSSの方にコピペする。font-famil：の後述にコードを貼る。 -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- FontAwesome旧バージョン4-7-0を読み込ませる-->
+  <title>tomato</title>
+</head>
+
+<!-- 〓〓〓レスポンシブデザイン〓〓〓
+＜７６８         ７６８＜
+BOX１                       BOX１
+BOX２                       BOX２
+BOX３               BOX３    BOX４
+BOX４                      BOX５
+BOX５ -->
+
+<!-- 〓〓〓〓〓〓製作手順  〓〓〓〓〓〓
+✴️３−１：レイアウトの基本構造を作る
+        ・BOX用意
+        ・BOX横並
+        ・レンスポンシブWEBデザイン
+✴️３−２：BOXの中にコンテンツを入れる
+✴️３−３：レイアウト調整
+        ・BOXをバーの形に
+        ・BOX間に区切り線
+        ・パーツ感覚の調整（縦）
+        ・パーツ感覚の調整（横）
+✴️３−４：レスポンシブWEVデザインの調整
+        ・＠media設定
+        ・ナビをコンパクト化（＜599px）
+        ・サイト名、記事タイトルをコンパクト（＜599px）
+        ・サブメニュー2段組（600〜767px)
+        ・レイアウトの全体幅固定（1040≦）
+✴️３−５：パーツの追加・修正
+        ・WEBフォントによるサイト名表示
+        ・記事の分類をラベルの形で表示
+        ・リストマーク付きのメニューにする
+        ・フラットなSNSシェアボタン追加
+        ・関連記事メニュー追加
+✴️３−６：ナビバーとフッターを横幅いっぱいに表示
+〓〓〓〓〓〓もくじ    〓〓〓〓〓〓
+✳️BOX1:サイト名
+✳️BOX２：メニュー横並『ナビ』
+✳️BOX３：記事
+✳️シェアボタン
+✳️関連記事
+✳️BOX４:メニュー横並（サイドメニュー）
+✳️BOX5:コピーライト -->
+
+<body>
+<!-- ーーーーーーーーーーーーーーーーーーーー
+BOX1:サイト名
+ーーーーーーーーーーーーーーーーーーーーーー-->
+<div class="box1">
+  <div class="site">
+    <h1><a href="#">TimeSwitch</a></h1>
+  </div>
+</div>
+<!-- ーーーーーーーーーーーーーーーーーーーー
+BOX２:メニュー横並び「ナビゲーション」
+ーーーーーーーーーーーーーーーーーーーーーー-->
+<div class="box2">
+  <div class="box2-inner">
+  <!-- p162ナビ中身を他パーツに揃えるため入れ子 -->
+  <nav class="menu">
+    <ul>
+      <li><a href="#">トップ</a></li>
+      <li><a href="#">雑貨</a></li>
+      <li><a href="#">ガシェット</a></li>
+      <li><a href="#">お出掛け</a></li>
+      <li><a href="#">食べ物</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+  </ul>
+  </nav>
+  </div>
+</div>
+<!-- ーーーーーーーーーーーーーーーーーーー
+BOX３:記事
+ーーーーーーーーーーーーーーーーーーーーーー-->
+<div class="boxA">
+  <!-- box3とbox4を横に並べる。スタイルを適用しやすいようbox3とbox4を<div class=boxA>でグループ化 -->
+    <div class="box3">
+        <article class="kiji">
+
+        <div class="kiji-cat" >
+          <!-- 記事を分類したカテゴリーを表示 -->
+            <ul>
+              <li><a href="#">食べ物</a></li>
+              <li><a href="#">お出掛け</a></li>
+            </ul>
+        </div>
+
+           <h1>もぎたてトマトを美味しく食べたい！ </h1>
+                 <div class="kiji-info">
+                <!-- p119全体divで囲い投稿日以外情報追加可能に -->
+                  <time class="datatime="2019-11-15"">
+                    <!-- 投稿日を追加で<time>でマークアップ -->
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  2019年11月15日
+                 <p><img src="tomato.jpg" alt="トマト画像"></p>
+               </time>
+               </div>
+<!-- 💫問題克服：
+教科書上は<img src="img/"tomato.jpj" alt="">と記述指示。ツリービュー上で同じ階層にtomato.jpjを持ってきて、上記の記載にしたら画像表示成功。 -->
+             <p>もぎたてトマトを食べたくなって、ちょっと郊外にあるトマト農家さんの直売店まで行ってきました。ここのトマトを新鮮で、美味しく、お安いという、とってもお買い得なトマトなんです。</p>
+
+        <h2>新鮮なトマトの見分け方</h2><!-- （p127） -->
+            <p>もぎたての新鮮なトマトは、ヘタが緑色でみずみずしく、シャキッとしています。赤い身は皮がピンと張り、つるっと丸いものがいいのだとか。糖分の高いトマトは水に沈むそうですが、何でも甘ければいいというものではないので、好みの味のトマトを作る農家さんを見つけたいところです。</p>
+
+       <h2>もぎたてトマトの美味しい食べ方</h2>
+        <p>何と言っても、もぎたてトマトは水洗いしてそのまま食べるのが一番です。暑い日に美味しいトマトにかぶりつくと、それだけで幸せになれます。水分補給もできるので一石二鳥です。</p>
+
+        <p>もちろん、何かをつけたり、かけたりして食べるのも美味しいです。定番としては、塩、砂糖、マヨネーズ、オリーブオイルなどがおすすめ。</p>
+
+<!-- ーーーーーーーーーーーーーーーーーーー
+シェアボタン  （P１４４〜１５３）
+ーーーーーーーーーーーーーーーーーーー -->
+  <div class="share">
+      <ul>
+          <li><a href="https://twitter.com/intent/tweet?text=%E3%82%82%E3%81%8E%E3%81%9F%E3%81%A6%E3%83%88%E3%83%9E%E3%83%88%E3%82%92%E7%BE%8E%E5%91%B3%E3%81%97%E3%81%8F%E9%A3%9F%E3%81%B9%E3%81%9F%E3%81%84%EF%BC%81&amp;url=http%EF%BC%9A%2F%2Fexample.com&amp;via=ebisucom" class="share-tw">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+            <span>Twitter</span>でシェア
+          </a></li>
+          <li><a href="http://www.facebook.com/share.php?url=http%3A%2F%2Fexample.com%0D%0A" onclick ="window.open(this.href, `SNS`, `width=500, height=500, menubar=no, toolbar=no, scrollbars=yes `;); return false;"class="share-fb">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+            <span>Facebook</span>でシェア
+          </a></li>
+          <li><a href="http://www.google.com/share?url=http%3A%2F%2Fexample.com%0D%0A"onclick ="window.open(this.href, `SNS`, `width=500, height=500, menubar=no, toolbar=no, scrollbars=yes `;); return false;" class="share-gp">
+            <i class="fa fa-google-plus" aria-hidden="true"></i>
+            <span>Google+</span>でシェア
+          </a></li>
+      </ul>
+  </div>
+</article>
+  <!-- この位置に<article class="box3">の閉じタグがあるのがポイント！
+  つまりbox3の下にシェアボタンを設置したいから、box3の中にシェアボタンを挟んでいるのがポイント。box３が閉じた後にシェアボタンを記述すると、box4の上の位置にシェアボタンがきてしまうので、右上にいちゃったり、右側が真っ白になるなどレイアウト崩れる。 -->
+
+<!-- ーーーーーーーーーーーーーーーーーーー
+関連記事メニューの追加（P１５４〜１６１）
+ーーーーーーーーーーーーーーーーーーー -->
+<aside class="kanren">
+  <h1>関連記事</h1>
+  <ul>
+    <!-- トマト作り -->
+     <li><a href="#">
+          <img src="red-150x150.jpg" alt="とまと">
+          <div class="text">
+            トマト作り その８ ・晴天続きで色付きはじめました
+          </div>
+     </a></li>
+<!-- お芋 -->
+     <li><a href="＃">
+          <img src="imo-150x150.jpg" alt="お芋">
+          <div class="てtext">
+            美味しいジャガイモ料理
+          </div>
+     </a></li>
+<!-- おナス -->
+     <li><a href="＃">
+          <img src="nasu-150x150.jpg" alt="ナス">
+          <div class="てtext">
+            ナスを収穫しました
+          </div>
+     </a></li>
+<!-- 缶詰 -->
+     <li><a href="＃">
+          <img src="can-150x150.jpg" alt="">
+          <div class="text">
+            缶詰をうまく活用して節約＆効率化
+          </div>
+     </a></li>
+  </ul>
+
+</aside>
+</div><!-- box3 の閉じタグ がここにあるのがポイント-->
+
+  <!-- ーーーーーーーーーーーーーーーーーー
+  BOX４:メニュー横並び（サイドメニュー）
+  ーーーーーーーーーーーーーーーーーーーーーー-->
+  <div class="box4">
+      <div class="box4-1">
+        <!-- （p111）
+        🔴BOXの分割によりサブメニューを２分割し横並び
+        🔴そこでBOX4を２つのボックスに分割。
+        🔴１つ目のBOXに「特集記事」「おすすめ記事」を、
+        🔴２つ目のBOXに「人気の記事」を入れた形にする。
+        🔴スタイルシートを適用しやすいよう、
+           各BOXに「box4-1」「box4-2」とクラス名指定。 -->
+           <aside class="sidemenu">
+               <h1>特集記事</h1>
+                  <ul>
+                      <li><a href="#">
+                           <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        わかりやすい地図の読み方
+                      </a></li>
+
+                      <li><a href="#">
+                           <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        苗から始めるトマト作り
+                    </a></li>
+
+                      <li><a href="#">
+                           <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        料理とスマホの便利な関係
+                      </a></li>
+
+                     <li><a href="#">
+                          <i class="fa fa-caret-right" aria-hidden="true"></i>
+                       バッテリーを長持ちさせる方法
+                     </a></li>
+                </ul>
+         </aside>
+
+        <aside class="osusume">
+           <h1>おすすめの記事</h1>
+              <ul>
+                <li><a href="#">
+                     <img src="flower.jpg" alt="花">
+                    <div class="text">
+                    初めてのフラワーアレンジメント
+                    </div>
+               </a></li>
+
+                <li><a href="#">
+                     <img src="old.jpg" alt="pc">
+                     <div class="text">
+                       古い端末が出てきたので充電してみたら・・・
+                     </div>
+              </a></li>
+            </ul>
+        </aside>
+     </div><!-- box４−1の閉じタグ -->
+
+      <div class="box4-2">
+          <aside class="ninki">
+               <h1>人気の記事</h1>
+                  <ul>
+                        <li><a href="#">
+                             <img src="sakura-60x60.jpg" alt="お花">
+                              <div class="text">
+                                    花好きにおすすめの鑑賞スポット
+                                    <span>おでかけ</span>
+                              </div>
+                       </a></li>
+                <!-- 記事題と記事カテゴリー情報はdivでグループ化 -->
+                  <!-- 各記事のカテゴリー情報を追加しspanで囲む -->
+                      <li><a href="#">
+                        <img src="tel-60x60.jpg" alt="電話器">
+                          <div class="text">
+                               通話アプリの便利な使い方
+                               <span>スマホ＆タブレット</span>
+                          </div>
+                      </a></li>
+
+                      <li><a href="#">
+                        <img src="green-60x60.jpg" alt="グリーン">
+                        <div class="text">
+                                 森林浴＆温泉を満喫するならココ！
+                        <span>おでかけ</span>
+                        </div>
+                      </a></li>
+
+                      <li><a href="#">
+                        <img src="bag-60x60.jpg" alt="青色小物">部屋を彩るカラフルな家具</a></li>
+                      <li><a href="#">
+                        <img src="sea-60x60.jpg" alt="海">
+                       <div class="text">
+                                海の中で出会ったものたち
+                               <span>おでかけ</span>
+                       </div>
+                    </a></li>
+              </ul>
+          </aside>
+    </div><!-- box4-2 の閉じタグ -->
+</div><!-- box4の閉じたぐ -->
+</div><!-- boxAの閉じタグ -->
+
+<!-- ーーーーーーーーーーーーーーーーーーーー
+BOX5:コピーライト
+ーーーーーーーーーーーーーーーーーーーーーー-->
+<div class="box5">
+    <div class="box5-inner">
+      <!-- p165フッター中身を他パーツに揃える -->
+       <div class="copyright">
+             <p>copyright &copy;TimeSwitch</p>
+       </div>
+    </div>
+</div>
+
+</body>
+</html>

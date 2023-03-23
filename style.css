@@ -1,0 +1,594 @@
+@charset "UTF-8";
+body {margin: 0;
+  /* p164.ページ周り標準挿入の余白削除。ナビとフッターを隙間なく横幅いっぱいに */
+       font-family:sans-serif}
+
+/* ボックスの左右に確保する余白 */
+.box1, .boxA, .box2-inner, .box5-inner
+{padding-top: 20px;
+  padding-bottom: 20px;}
+
+/*   〓〓〓〓〓〓もくじ    〓〓〓〓〓〓
+✳️BOX２：メニュー横並『ナビ』
+✳️BOX３：記事
+        ・BOX３−１：SNSシェアボタン
+        ・BOX３−２：関連記事
+        ・BOX３−３：記事分類（ラベル形式）
+✳️BOX4:メニュー縦並（サイドメニュー）
+  ・BOX４−１：サイド（ おすすめ記事）
+  ・BOX４−２：サイド（ 人気の記事）
+  ・BOX４−３：概要トップ
+              🔴TOP−１＞続きを読む」ボタン
+              🔴TOP−２＞円形バッジを追加
+              🔴TOP−３＞ページネーション
+✳️BOX5:コピーライト
+            ・５９９px以下
+            ・６００px以上〜７６７px以下
+            ・６００px以上
+            ・７６８px以上
+            ・１０４０px以上
+   〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓 */
+
+/* ーーーーーーーーーーーーーーーーーーー
+BOX1：サイト名
+ーーーーーーーーーーーーーーーーーーー */
+.site h1 a {color: #000000;
+             text-decoration: none;
+             color: #83a4a8;}
+
+.site h1 {margin: 0;
+          font-size:30px;
+          font-family:  'Paytone One', sans-serif;
+          font-weight: normal;}
+/* p116 フォント:
+Google fontsサイトでフォント選択「Specify in」欄のコードを 、適応したいclassに指定。font-family:に後述で貼る。HTML＜link href=>に「Embed Font」欄のコード貼る */
+
+/* ーーーーーーーーーーーーーーーーーーー
+BOX２：メニュー横並『ナビ』
+ーーーーーーーーーーーーーーーーーーー */
+.menu ul{margin: 0;
+            padding: 0;
+            list-style: none;}
+
+.menu li a{display: block;
+              padding: 15px;
+              color: #000000;
+              font-size: 14px;
+              text-decoration: none;}
+
+.menu li a:hover{background-color:#75dbe7;}
+
+.menu ul ::after{content:"";
+                   display: block;
+                   clear:both;}
+
+.menu li          {float: left;
+                  width: auto;}
+          /* 書籍上のwidth:autoではナビバー幅いっぱいにならず */
+
+/* ーーーーーーーーーーーーーーーーーーーー
+BOX３：記事 （P６６）
+ーーーーーーーーーーーーーーーーーーーー*/
+.kiji h1{margin-top: 0;
+          margin-bottom: 20px;   /* p66 */
+           font-size: 36px;}
+
+.kiji p   {margin-top: 0;
+         margin-bottom: 20px;}
+
+.kiji img{max-width: 100%;
+            height: auto;
+            margin-top: 20px;}
+            /* .kiji-info{ margin-bottom: 20px;}無効の代用、imgのmargin-topで投稿日と画像の間に余白 */
+
+/*記事の小見出し(p１２８) */
+.kiji h2 {margin-top: 40px;
+         /*  小見出しの上余白拡大 */
+          padding-left: 10px;
+          /* 罫線の右側に余白 */
+          border-left: solid 10px #7cbac1;
+          /* 小見出しの左にバー付与 */
+         font-weight: normal;}
+         /* h２は標準太字にて小見出しを細字に */
+
+/* 記事の投稿日 （p１１９）*/
+.kiji-info{ margin-top: -10px;}
+            /* margin-topの代わりに
+            h1のmargin-bottom変更でも可 */
+
+.kiji-info i{margin-right: 5px;/* icon右側余白 */
+        color: #aaaaaa;/* iconグレー */
+        font-size: 20px}/* iconサイズ変更。<p>だから可能？ */
+
+/* ーーーーーーーーーーーーーーーーーーーーー
+BOX３−２：SNSシェアボタン （P１４４〜１５０）
+ーーーーーーーーーーーーーーーーーーーーーーー*/
+.share ul{margin: 40px;
+        /* SNSボタン上余白拡大し記事本文との間隔拡大 */
+            padding: 0;
+            list-style: none;}
+
+.share li a{display: block;
+             padding: 10px 5px;
+             /* p148リンク内上下拡大 */
+             color: #ffffff;
+             font-size: 14px;
+             text-align: center;
+            text-decoration: none;}
+
+.share-tw{background-color: #55acee;}
+.share-fb{background-color: #3b5998;}
+.share-gp{background-color: #dd4b39;}
+
+.share li a:hover{opacity: 0.8;}/* p148薄く */
+
+.share ul::after{content:"";
+                 display: block;
+                 clear:both;}
+
+.share li{float: left;
+           width: 33.3333%;}
+          /* リンク横幅を揃え３等分 */
+
+/* ーーーーーーーーーーーーーーーーーー
+BOX３−３：関連記事メニュー
+ーーーーーーーーーーーーーーーーーーー */
+.kanren{margin-top: 40px;
+             padding: :20px;
+           background-color: #f0f0d4;}
+        /* 関連記事を象牙色で囲む枠内余白と枠上余白挿入 */
+.kanren h1{margin: 0 0 5px;
+          color:#727224;
+          font-size: 20px;
+          font-weight: normal;}
+          /* p158見出し */
+
+.kanren ul{margin: 0;
+            padding: 0;
+            list-style: none;}
+
+.kanren  li a{display: block;
+                  padding: 5px;
+                  color:#000000;
+                  font-size: 14px;
+                  text-decoration: none;}
+
+.kanren li a:hover{/* background-color: #eeeeee; */
+                     text-decoration: underline;}
+               /* p158ホバー時を背景色から下線へ変更 */
+
+.kanren::after{content:"";
+                    display: block;
+                    clear: both;}
+                 /*フロートによる後続要素への影響解消*/
+
+.kanren li {float:left;/* 横並びに */
+              width: 25%;}
+          /* カラム落ち防止リンク横４等分 */
+
+.kanren img{max-width: 100%;
+                height: auto;
+              border:none;}
+            /* ブラウザ横幅を縮小時、横の画像に重なるため、画像サイズ変わるように。旧ブラウザに備え画像の罫線囲い防止*/
+
+/* ーーーーーーーーーーーーーーーーーーーーー
+BOX３−４：記事分類 （P６９、１２３）
+                    （ラベル形式表示・リンク横並）
+ーーーーーーーーーーーーーーーーーーーーー*/
+.kiji-cat{margin: 25px 0 10px;}
+          /*ラベル上下余白。（p126）
+          書籍のmargin-bottom:25px;では不可*/
+
+.kiji-cat ul{margin: 0;
+              padding: 0;
+              list-style: none;}
+
+.kiji-cat li a{display: block;
+              margin-right: 5px;
+              /* ラベルの間隔調整のため各リンク右に余白p124 */
+              padding: 3px 5px;
+              /* ラベル内上下padding５→３pxへ変更ラベル小さく*/
+              border-radius: 2px;
+              /* ラベル角丸 */
+              background-color: #75dbe7;/* p124背景色つけリンクをラベルの形に*/
+              color: #ffffff;
+              font-size: 12px;
+              /* 14→12へ変更ラベル小さく */
+              text-decoration: none;}
+
+.kiji-cat li a:hover{background-color: #94ecf6;}
+              /* ホバー時ラベル明るい水色（p126）*/
+
+.kiji-cat ul::after{content:"";
+                   display: block;
+                   clear:both;}
+.kiji-cat li {float:left;
+               width: auto;}
+/* ーーーーーーーーーーーーーーーーーーーーー
+BOX４：メニュー縦並び（サイドメニュー）
+ーーーーーーーーーーーーーーーーーーーーー */
+.sidemenu ul       {margin: 0;
+                     padding: 0;
+                     list-style: none;}
+
+.sidemenu li a        {display: block;
+                        padding: 5px;
+                        color:#000000;
+                         font-size: 14px;
+                         text-decoration: none;}
+
+.sidemenu li a:hover{background-color: #eeeeee;}
+
+.sidemenu  h1         {margin-top: 0;
+                          margin-bottom: 10px;
+                           border-bottom: dotted 2px #dddddd;
+                          font-size: 18px;}
+
+.sidemenu i{margin-right: 5px;
+            /* リストマークの右側に余白} */
+                 color: #888888;}
+           /* リストマークグレー*/
+
+
+/* ーーーーーーーーーーーーーーーーーーーーーーー
+  BOX４−１：サイド（ おすすめ）P９１
+ーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.osusume ul{margin: 0;
+                padding: 0;
+                list-style: none;}
+
+.osusume li a{display: block;
+                 margin-bottom: 10px;
+                 /* リンク画像下に余白 */
+                  padding: 0px;
+              /* ホバー時のグレー背景色と画像周囲余白は<a>のpaddingでリンク内側に入れた余白。これを削除し画像を横幅いっぱいに */
+                  color:#000000;
+                  font-size: 14px;
+                  text-decoration: none;}
+
+.osusume li a:hover{background-color: #eeeeee;
+                        opacity: 0.8;}
+                        /* p143ホバー時透明度が変化 */
+
+.osusume h1 {margin-top: 0;
+                  margin-bottom: 10px;
+                  border-bottom: dotted 2px #dddddd;
+                  font-size: 18px;}
+
+.osusume img{width: 100%;
+                   height:auto;
+                   border: none;
+                  vertical-align: bottom;}
+             /* サムネの超右はみ出しに対策。画像下の余計な余白や、 旧ブラウザでの余計な罫線囲い防止 */
+
+.osusume .text{padding: 5px 10px;
+                   background-color: rgba(0,0,0,0.5);
+                   color: #ffffff;}
+             /* テキスト背景黒にし帯型デザインに。
+             背景色は透明 度調節出来る指定に。
+             4つ目数値＝ 1：不透明。0,5：半透明*/
+
+/* おすすめ記事メニューの黒帯テキストを重ねる(P１４２) */
+.osusume a{position: relative;}
+.osusume .text{position: absolute;
+                   bottom: 0;
+                   left:0;
+                   width: 100%;
+                   -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;}
+            /* p142position指定により画像に黒帯を重ねる。
+            テキストを重ねる設定は簡単に解除出来るよう、 おすすめ記事の設定とは分けて追加 。
+            文章に合わせた横幅の黒帯を画像幅に揃えてるため100％に。
+            横幅は余白を含めて処理するためbox-sizingをboeder-boxに指定*/
+
+/* ーーーーーーーーーーーーーーーーーーーーーーー
+BOX４−２：サイド（ 人気 ）
+ーーーーーーーーーーーーーーーーーーーーーーーー*/
+.ninki ul{margin: 0;
+                padding: 0;
+                list-style: none;}
+
+.ninki li a{display: block;
+                  padding: 5px;
+                  border-bottom: dotted 1px #dddddd;
+                  /* 各リンク下に薄グレー点線*/
+                  color:#2288bb;/* p136黒から青へ変更 */
+                  font-size: 14px;
+                  text-decoration: none;}
+
+.ninki li a img{border: none;}
+                /* Internet Explorer10以前のリンク内の画像の罫線囲い防止 */
+.ninki li a:hover{background-color: #eeeeee;}
+
+.ninki h1{margin-top: 0;
+                  margin-bottom: 10px;
+                  border-bottom: dotted 2px #dddddd;
+                  font-size: 18px;}
+
+.ninki a::after{ content:"";
+                  display: block;
+                  clear: both;}
+.ninki img{float:left;
+              width: 60px;
+               padding-right: 15px;}
+             /* .ninki .text padding-left: で文字左 に余白挿入不可にて代行*/
+
+.ninki .text{float:none;
+              width:auto;
+              margin-right: 60px;  }
+            /* 画像とテキストを横並 。画像は横幅60px固定。p40の「片方のBOXの横幅をpx固定」<img>のwidthと<div class=tex>のmargin-rightは横幅60px固定。（p136） */
+
+
+.ninki span{display: block;
+               color:#666666;
+              font-size: 12px;}
+         /* <span>で囲った付加情報の前で改行、字グレー */
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーー
+BOX４−３：概要 トップ （p１７２〜）
+ーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.gaiyou{margin-bottom: 20px;}
+.gaiyou a {display: block;
+             border: solid 1px #dddddd;
+             color: #000000;
+             text-decoration: none;}
+
+.gaiyou a:hover{box-shadow: 0 0 10px #dddddd;}
+
+.gaiyou img{max-width: 100%;
+              height: auto;
+              border: none;
+             margin-bottom: 15px;}
+
+.gaiyou h1{margin: 0 0 20px;
+              font-size: 22px;
+             margin: 0 15px;}
+
+.gaiyou p{margin: 0 15px 15px;
+              font-size: 14px;}
+         /* a＞p175概要全体を罫線で囲いリンク機能
+          img＞レスポンシブでブラウザ横幅に合わせ縮小。旧ブラでウザの画像周囲罫線表示防止*/
+
+/* ーーーーーーーーーーーーーーーーーー
+TOP＞１「続きを読む」ボタン  （p１７７）
+ーーーーーーーーーーーーーーーーー */
+/* 続きを読む */
+.more{display: inline-block;
+         padding: 5px 15px;
+        background-color: #3077be;
+        color: #ffffff;}
+        /* 青色ボタンの形にデザイン */
+.more i{margin-left: 10px;}
+        /* 文字と矢印 ICONの間隔を空ける */
+
+/*ーーーーーーーーーーーーーーーーーーー
+ TOP＞２ 円形バッジを追加 p１９０〜１９３
+ ーーーーーーーーーーーーーーーーーーー */
+/* バッジの大きさ 調整 */
+/* アイコンとテキストのレイアウト調整 */
+.badge{width: 120px;
+         height: 120px;
+         padding-top: 25px;
+         box-sizing: border-box;
+         /* padding-topで入れた余白はheightで指定した高さの中に含めたい */
+         border-radius: 60px;
+       /* 半径は横幅と高さの半分の大きさ120÷２ */
+         background-color: #00a0e9;
+         color: #ffffff;
+         text-align: center;
+        box-shadow: 0 0 4px #aaaaaa;}
+
+.badge i{display: block;
+          /* ICONの続きに文字が繋がらず改行させる */
+           font-size: 40px;}
+          /* ICONを大きく */
+
+/* バッジ表示位置 */
+.pickup{position: relative;}
+             /* 概要全体を囲んだ＜article class="gaiyou pickup"＞を起点 */
+.badge {position: absolute;
+        /* バッジを構成する＜div class="badge"＞に絶対配置 */
+         top: 40%;
+         right: -15px;}
+         /* 右にはみ出させる */
+/* ーーーーーーーーーーーーーーーーーーー
+TOP＞１ ページネーション  （p１８７）
+ーーーーーーーーーーーーーーーーーーーー */
+/* ページの中央に揃えて表示 */
+.pagenation{text-align: center;}
+
+.pagenation ul{display: inline-block;
+/* リンクを横に並べる */
+                 margin: 0;
+                  padding: 0;
+                 list-style: none;}
+
+.pagenation li a{display: block;
+                  margin: 0 5px;
+              /* リンクの間隔調整余白挿入 */
+                  padding: 5px 10px;
+                  border: solid 1px #aaaaaa;
+                  /* リンクを罫線で囲む */
+                  color:#000000;
+                  font-size: 14px;
+                  text-decoration: none;}
+
+/* 表示中のページを示す */
+.pagenation li a.active{background-color: cccccc;}
+/* 表示中のページを示す設定は、実際にはCMSの機能と組み合わせて使用することになる */
+
+.pagenation li a:hover{background-color: #eeeeee;}
+
+.pagenation ul::after{
+  content:"";
+  display: block;
+  clear: both;}
+
+.pagenation li {float:left;
+                 width: auto;}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーー
+BOX5:コピーライト（ p９２）
+ーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.copyright p{margin: 0;
+               color: #666666;
+               font-size: 14px;}
+/*ーーーーーーーーーーーーーーーーーーー
+レイアウトの調整 (P９７)
+ーーーーーーーーーーーーーーーーーーー
+  /* ボックスをバーの形にする （p９７）*/
+ .box2 li{background-color: #7cbac1;}
+ /* 書籍上のbox2{} の指定が効かない */
+
+/* ボックス5の上に区切り線を入れる （p９８）*/
+.box5{border-top:solid 1px #dddddd;}
+
+/* boxの上下の間隔を調整。（p９９）*/
+.box1{padding: 8px 0 8px;}
+.box3{padding: 40px 0 30px;}
+.box4{padding: 30px 0 30px;}
+.box5{padding: 15px 0 15px;}
+
+.top .boxA {padding: 30px 0 20px;}
+/* p174 トップページサムネ.書籍上はトップとボトム20px */
+/* ーーーーーーーーーーーーーーーーーーーーー
+５９９px以下  （ p１０２）
+ーーーーーーーーーーーーーーーーーーーーーー*/
+@media (max-width: 599px){
+/* バッジの表示i位置    小さく */
+.badge{-ms-transform: scale(0.5);
+         -mst-origin: right top;
+         -webkit-transform: scale(0.5);
+         -webkit-origin: right top;
+         transform: scale(0.5);
+         transform-origin: right top;
+         top: -8px;
+         right: 10px;}
+         /* 右上に少しはみ出させる */
+
+/* ナビ   コンパクトに（p１０６）*/
+  .menu li a{ padding: 10px 3px;
+             /*  リンク上下の余白を狭く */
+           font-size: 11px;}
+             /* リンク左右余白狭く*/
+
+/* サイト名と記事のタイトル（p１０８） */
+  .site h1{font-size: 20px;}/* サイト名小さく */
+  .kiji h1{font-size: 26px;}/* 記事タイトル小さく */
+
+/* ボックス上下の間隔（P１０９)
+  文字サイズ変更に合わせ余白も小さく */
+  .box1{padding: 4px 0;}/* サイト名の上下を小さく */
+  .box3{padding-top: 25px;}/* 記事タイトル上余白縮小 */
+
+/* SNSシェアボタンp１５０ */
+  .share span{display: inline-block;
+                 text-indent: -9999px;}
+            /* 600px≧の小画面ではリンクのテキストに改行生じる→600pxより小画面ではブランド名非表示・改行なしに。非表示したい文字をhtmlで<span>で囲む。
+             inlineは１行目を字下げし画面外に追出し非表示に */
+
+/* 関連記事メニュー */
+.kanren {padding: 10px;}
+      /* メニュー全体を囲った枠の内側余白小さく */
+.kanren li{width: 50%;}
+       /* 3つめ以降のリンクはカラム落ちさせる */
+.kanren li:nth-child(3) {clear: both;}
+           /* レイアウト崩れ防止。３つ目リンクに */
+}/* ＠ */
+
+/* ーーーーーーーーーーーーーーーーーーーーーーー
+６００px以上             （p１８１）
+ーーーーーーーーーーーーーーーーーーーーーーーー*/
+@media(min-width:600px){
+  /* 概要を横に並べる  横幅2分劃*/
+  .boxA-1::after{ content:"";
+                      display: block;
+                      clear: both;}
+
+.boxA-1 .gaiyou {float:left;
+                    width: 50%;}
+
+/* 横に並べた概要の間隔調整 */
+.boxA-1 .gaiyou:nth-child(odd)
+                {padding-right: 15px;
+                 -moz-box-sizing: border-box;
+                 -webkit-box-sizing: border-box;
+                 box-sizing: border-box;
+               /* 奇数番目の概要の右に余白 */
+                clear:both;}
+            /* 横幅＜650px→横に並べたレイアウト崩れ
+            「カラフルな家具」に改行が入り１つ目
+              の概要の高さが変るせい */
+
+.boxA-1 .gaiyou:nth-child(even)
+                  {padding-left: 15px;
+                  -moz-box-sizing: border-box;
+                  -webkit-box-sizing: border-box;
+                    box-sizing: border-box;}
+                    /* 偶数番目は左側に１５px余白 */
+}
+/* ーーーーーーーーーーーーーーーーーーーーーー
+６００px以上〜７６７px以下
+ーーーーーーーーーーーーーーーーーーーーーーーー*/
+@media (min-width: 600px) and (max-width: 767px){
+
+  /* バッジ表示位置*/
+  .badge{top: 30%;
+            right: 15px;}
+            /* テキストにバッジが被らないように指定を上書き */
+
+  /* BOX4-1とBOX4-2を横に並べる */
+  .box4::after{content:"";
+                display: block;
+               clear: both;}
+  .box4-1{float:left;
+              width: 50%}
+  .box4-2{float:left;
+              width: 50%}
+
+  /* BOX4-1とBOX4-2の左右の間隔p181-182*/
+  .box4-1{padding-right: 20px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;}
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーー
+７６８px以上
+ーーーーーーーーーーーーーーーーーーーーーーー */
+@media (min-width: 768px) {
+
+/* ピックアック（もぎたてトマトを） */
+.pickup h1{font-size: 30px;}
+                          /* 一番上に残しておいた概要は大きくて */
+
+  /*BOX3とBOX4を横に並べる指定(（p８２） */
+  .boxA::after{content:"";
+                 display: block;
+                 clear: both;}
+
+  .box3{float:left;
+           width: 70%}
+
+  .box4{float:left;
+          width: 30%}
+
+/* BOX3とBOX４の左右の間隔 （p１００）*/
+.box3{padding-right: 50px;
+         -moz-box-sizing: border-box;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;}
+}
+/* ーーーーーーーーーーーーーーーーーーーーーーーー
+１０４０px以上
+ーーーーーーーーーーーーーーーーーーーーーーーー*/
+@media (min-width: 1040px){
+  /* .box1, .box2, .boxA, .box5 */
+  .box1, .boxA, .box2-inner, .box5-inner
+             {width: 1000px;
+               margin: 0 auto;}
+}
+/* ブラウザ画面横幅大きくした時の表示調整。
+レイアウト全体の横幅固定、横広がりすぎ防止
+p 165ナビの中身・フッターの中身を他パーツに揃える*/
